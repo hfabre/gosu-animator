@@ -16,6 +16,10 @@ module Gosu
       find_animation(name).play
     end
 
+    def replay(name)
+      find_animation(name).replay
+    end
+
     def pause(name)
       find_animation(name).pause
     end
@@ -35,7 +39,7 @@ module Gosu
     private
 
     def find_animation(name)
-      @animations.select { |animation| animation.name == name }.first
+      @animations.find { |animation| animation.name == name }
     end
   end
 end

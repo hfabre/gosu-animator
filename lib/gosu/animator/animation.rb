@@ -21,8 +21,8 @@ module Gosu
         if frame_expired?
           @current_step += 1
           if done?
-            @current_step = 0
             @is_running = false unless @replay
+            @current_step = 0
           end
         end
       end
@@ -39,6 +39,11 @@ module Gosu
     def stop
       @is_running = false
       @current_step = 0
+    end
+
+    def replay
+      stop
+      play
     end
 
     private
